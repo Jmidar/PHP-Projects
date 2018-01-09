@@ -1,5 +1,7 @@
 <?php
-	$fonts = arival;
+	$fonts = "verdana";
+	$bgcolor = "#444";
+	$fontcolor = "#FC8C41";
 ?>
 
 <!DOCTYPE html>
@@ -7,10 +9,11 @@
 <head>
 	<title>PHP Syntax</title>
 	<style>
-		.phpcoding{width:900px; margin: 0 auto;background: #ddd; }
+		.body{font-family:<?php echo $fonts;?>}
+		.phpcoding{width:900px; margin: 0 auto;background: <?php echo "#ddd"; ?> }
 		
 		.headeroption,
-	    .footeroption{background:#444;color:#fff;text-align:center; padding: 20px;}
+	    .footeroption{background:<?php echo $bgcolor;?>;color:<?php echo $fontcolor; ?>;text-align:center; padding: 20px;}
 		.headeroption h2, .footeroption h2{margin: 0;}
 		.maincontent{min-height: 400px;padding: 20px;}
 	
@@ -22,11 +25,24 @@
 	<section class="headeroption">
 		<h2><?php echo"PHP Fundamentals Training"; ?></h2>
 	</section>
+	PHP Array<hr>
 	
 	<section class="maincontent">
 		<?php
-			echo "I am Jmi...\n<br>";
-			echo $fonts;
+			$a = array(
+				array("volvo", 20, 30),
+				array("vol", 10, 40),
+				array("vo", 20, 60)
+			);
+			for($r=0;$r<3;$r++){
+				echo "This is row:";
+				echo "<ul>";
+				for($c=0;$c<3;$c++){
+						echo "<li>".$a[$r][$c]."</li>";
+				}
+				echo "</ul>";
+			}
+			
 		?>
 	</section>
 	<section class="footeroption">
