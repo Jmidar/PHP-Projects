@@ -25,23 +25,29 @@
 	<section class="headeroption">
 		<h2><?php echo"PHP Fundamentals Training"; ?></h2>
 	</section>
-	PHP Array<hr>
+	PHP Sorting Array<hr>
 	
 	<section class="maincontent">
 		<?php
-			$a = array(
-				array("volvo", 20, 30),
-				array("vol", 10, 40),
-				array("vo", 20, 60)
-			);
-			for($r=0;$r<3;$r++){
-				echo "This is row:";
-				echo "<ul>";
-				for($c=0;$c<3;$c++){
-						echo "<li>".$a[$r][$c]."</li>";
-				}
-				echo "</ul>";
+			$x = 5;
+			$y = 2;
+			function test(){
+				$GLOBALS['z']=$GLOBALS['x']+$GLOBALS['y'];
 			}
+			test();
+			echo $z."<br>";
+			
+			
+			echo $_SERVER['SERVER_NAME'];
+			echo "<br>";
+			echo $_SERVER['PHP_SELF'];
+			echo "<br>";
+			echo $_SERVER['SCRIPT_NAME'];
+			echo "<br>";
+			echo $_SERVER['HTTP_USER_AGENT'];
+			echo "<br>";
+			echo $_SERVER['SERVER_ADDR'];
+
 			
 		?>
 	</section>
