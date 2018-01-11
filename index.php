@@ -28,26 +28,21 @@
 	PHP Sorting Array<hr>
 	
 	<section class="maincontent">
+		<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+			Username:<input type="text" name="username" />
+			<input type="submit" name="Submit" />
+		</form>
 		<?php
-			$x = 5;
-			$y = 2;
-			function test(){
-				$GLOBALS['z']=$GLOBALS['x']+$GLOBALS['y'];
+		
+			if($_SERVER["REQUEST_METHOD"]=="POST"){
+				$name = $_POST['username'];
+				if(empty($name)){
+					echo "<spam style='color:red'>Username field must not be empty !</spam>";
+				}
+				else{
+					echo "<spam style='color:green'>You have submitted: ".$name."</spam>";
+				}
 			}
-			test();
-			echo $z."<br>";
-			
-			
-			echo $_SERVER['SERVER_NAME'];
-			echo "<br>";
-			echo $_SERVER['PHP_SELF'];
-			echo "<br>";
-			echo $_SERVER['SCRIPT_NAME'];
-			echo "<br>";
-			echo $_SERVER['HTTP_USER_AGENT'];
-			echo "<br>";
-			echo $_SERVER['SERVER_ADDR'];
-
 			
 		?>
 	</section>
