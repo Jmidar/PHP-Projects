@@ -102,6 +102,21 @@
 		echo date("Y/m/d")."<br>";
 		echo date("l");
 	?>
+	<hr>
+	<?php
+		if(isset($_FILES['image'])){
+			$filename = $_FILES['image']['name'];
+			$filetmp = $_FILES['image']['tmp_name'];
+			move_uploaded_file($filetmp,"images/".$filename);
+			echo "Image Uploaded Successfully";
+		}else{
+			echo "error";
+		}
+	?>
+	<form method="POST" action="" enctype="multipart/form-data">
+		<input type="file" name="image" />
+		<input type="submit" Value="Submit" />
+	</form>
 	
 	</section>
 	<section class="footeroption">
