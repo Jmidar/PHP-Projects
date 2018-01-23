@@ -1,33 +1,13 @@
 <?php include("header.php")?>
 
-<script>
-	function clickHere(){
-		var getname = document.myform.name.value;
-		document.getElementById('showName').innerHTML = getname;
-		
-		var genderLength = document.myform.gender.length;
-		for(i=0;i<genderLength;i++){
-			var checkGender = document.myform.gender[i].checked;
-			if(checkGender){
-				gendValue=document.myform.gender[i].value;
-			}
-		}
-		document.getElementById('showGender').innerHTML = gendValue;
-		
-		var depLength = document.myform.dep.length;
-		for(i=0;i<depLength;i++){
-			var checkDep = document.myform.dep[i].checked;
-			if(checkDep){
-				dapValue = document.myform.dep[i].value;
-			}
-		}
-		document.getElementById('showDep').innerHTML = dapValue;
-		
-		var index = document.myform.coder.selectedIndex;
-		var coderValue = document.myform.coder.options[index].value;
-		document.getElementById('showCoder').innerHTML = coderValue;
-	}
-</script>
+<?php
+	if(isset($_POST['submit'])){
+		$name   = $_POST['name'];
+		$gender = $_POST['gender'];
+		$dep    = $_POST['dep'];
+		$coder  = $_POST['coder'];
+	
+?>
 <table class="tblone">
 	<tr>
 		<td colspan="2" align="center">Output</td>
@@ -35,27 +15,44 @@
 	
 	<tr>
 		<td>Name: </td>
-		<td><span id="showName"></span></td>
+		<td><?php echo $name;?></td>
 	</tr>
 	
 	<tr>
 		<td>Gender: </td>
-		<td><span id="showGender"></span></td>
+		<?php
+		if($gender == "Male"){?>
+			<td><?php echo $gender;?></td>
+		<?php }
+		else if($gender == "Female"){?>
+			<td><?php echo $gender;?></td>	
+		<?php } ?>
 	</tr>
 	
 	<tr>
 	
 		<td>Department: </td>
-		<td><span id="showDep"></span></td>
+		<?php
+		if($dep == "CSE"){?>
+			<td><?php echo $dep;?></td>
+		<?php }
+		else if($dep == "English"){?>
+			<td><?php echo $dep;?></td>	
+		<?php }
+		else if($dep == "LLB"){?>
+			<td><?php echo $dep;?></td>	
+		<?php } ?>
 	</tr>
 	
 	<tr>
 		<td>Coder: </td>
-		<td><span id="showCoder"></span></td>
+		<td><?php echo $coder;?></td>
 	</tr>
 </table>
 
-<form action=""  name="myform" id = "myform" onsubmit = "clickHere(); return false;" >
+<?php } ?>
+
+<form action="" method="post" name="myform" id = "myform" onsubmit = "clickHere(); return false;" >
 	<table>
 		<tr>
 			<td>Name: </td>
